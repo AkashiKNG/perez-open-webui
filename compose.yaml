@@ -1,0 +1,71 @@
+# Open WebUI para o Perez OS: chat com os modelos grátis do gpt4free e os da NVIDIA NIM.
+#
+# - open-webui: a interface (porta 8080). O primeiro cadastro vira o administrador.
+# - g4f: gpt4free sem interface, só na rede interna do app. Provedores que exigem login ficam de fora,
+#   então o modo automático usa só os gratuitos.
+# - NVIDIA NIM: conexão direta com a API compatível com OpenAI, usando NVIDIA_NIM_API_KEY do card.
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "127.0.0.1:3000:8080"
+    environment:
+      HOME: /app/backend/data
+      ENABLE_OLLAMA_API: "false"
+      OPENAI_API_BASE_URLS: "http://g4f:8080/v1;https://integrate.api.nvidia.com/v1"
+      OPENAI_API_KEYS: "gpt4free-sem-chave;${NVIDIA_NIM_API_KEY:-}"
+    volumes:
+      - open-webui-data:/app/backend/data
+    depends_on:
+      - g4f
+
+  g4f:
+    image: hlohaus789/g4f:latest-slim
+    command:
+      - python
+      - -m
+      - g4f
+      - api
+      - --bind
+      - 0.0.0.0:8080
+      - --no-gui
+      - --ignored-providers
+      - AIBadgr
+      - Airforce
+      - Anthropic
+      - Antigravity
+      - BingCreateImages
+      - BlackboxPro
+      - Cerebras
+      - Claude
+      - Cohere
+      - Copilot
+      - CopilotAccount
+      - CopilotSession
+      - ElevenLabs
+      - GeminiCLI
+      - GigaChat
+      - GithubCopilot
+      - GithubCopilotAPI
+      - Grok
+      - HailuoAI
+      - HuggingChat
+      - HuggingFace
+      - HuggingFaceMedia
+      - MetaAIAccount
+      - MicrosoftDesigner
+      - MiniMax
+      - Ollama
+      - OpenRouter
+      - OpenaiAPI
+      - OpenaiAccount
+      - PerplexityApi
+      - Puter
+      - Replicate
+      - ThebApi
+      - Together
+      - WhiteRabbitNeo
+      - xAI
+
+volumes:
+  open-webui-data:

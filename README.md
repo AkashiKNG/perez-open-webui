@@ -1,0 +1,16 @@
+# Open WebUI para o Perez OS
+
+Interface de chat ([Open WebUI](https://github.com/open-webui/open-webui)) pronta para importar no Perez OS, com:
+
+- **Modelos grátis do gpt4free**: um gpt4free sem interface roda junto, só na rede interna do app, sem os
+  provedores que exigem login.
+- **NVIDIA NIM**: conexão direta com `https://integrate.api.nvidia.com/v1` usando `NVIDIA_NIM_API_KEY`.
+
+## Uso
+
+1. Importe `https://github.com/AkashiKNG/perez-open-webui` no painel.
+2. No card, preencha `NVIDIA_NIM_API_KEY` (ou deixe vazio para usar só o gpt4free).
+3. Abra a UI: o primeiro cadastro vira o administrador. Os modelos aparecem no seletor do chat.
+
+As conexões ficam salvas no banco do Open WebUI no primeiro start; depois disso, ajuste em
+**Configurações → Conexões** dentro da própria interface.
