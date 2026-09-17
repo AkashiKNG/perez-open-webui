@@ -12,6 +12,9 @@ services:
     environment:
       HOME: /app/backend/data
       ENABLE_OLLAMA_API: "false"
+      # O Open WebUI 0.11 vem com o cadastro desligado e sem ele não há como criar o primeiro usuário
+      # (que já entra como administrador). Depois de criar a sua conta, troque para "false" no card.
+      ENABLE_SIGNUP: "${OPEN_WEBUI_ENABLE_SIGNUP:-true}"
       OPENAI_API_BASE_URLS: "http://g4f:8080/v1;https://integrate.api.nvidia.com/v1"
       OPENAI_API_KEYS: "gpt4free-sem-chave;${NVIDIA_NIM_API_KEY:-}"
     volumes:

@@ -10,7 +10,9 @@ Interface de chat ([Open WebUI](https://github.com/open-webui/open-webui)) pront
 
 1. Importe `https://github.com/AkashiKNG/perez-open-webui` no painel.
 2. No card, preencha `NVIDIA_NIM_API_KEY` (ou deixe vazio para usar só o gpt4free).
-3. Abra a UI: o primeiro cadastro vira o administrador. Os modelos aparecem no seletor do chat.
+3. Abra a UI e clique em **Cadastre-se**: a primeira conta vira a administradora. Os modelos aparecem no
+   seletor do chat.
+4. Criada a conta, coloque `OPEN_WEBUI_ENABLE_SIGNUP=false` no card e atualize, para fechar o cadastro.
 
 As conexões ficam salvas no banco do Open WebUI no primeiro start; depois disso, ajuste em
 **Configurações → Conexões** dentro da própria interface.
