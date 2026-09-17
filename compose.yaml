@@ -11,6 +11,9 @@ services:
       - "127.0.0.1:3000:8080"
     environment:
       HOME: /app/backend/data
+      # O Open WebUI grava as configurações no banco no primeiro start e passa a ignorar as variáveis
+      # (PersistentConfig). Aqui quem manda é o compose + o card do painel, então isso fica desligado.
+      ENABLE_PERSISTENT_CONFIG: "false"
       ENABLE_OLLAMA_API: "false"
       # O Open WebUI 0.11 vem com o cadastro desligado e sem ele não há como criar o primeiro usuário
       # (que já entra como administrador). Depois de criar a sua conta, troque para "false" no card.

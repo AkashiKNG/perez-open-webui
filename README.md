@@ -14,5 +14,5 @@ Interface de chat ([Open WebUI](https://github.com/open-webui/open-webui)) pront
    seletor do chat.
 4. Criada a conta, coloque `OPEN_WEBUI_ENABLE_SIGNUP=false` no card e atualize, para fechar o cadastro.
 
-As conexões ficam salvas no banco do Open WebUI no primeiro start; depois disso, ajuste em
-**Configurações → Conexões** dentro da própria interface.
+As conexões e o cadastro vêm sempre das variáveis (`ENABLE_PERSISTENT_CONFIG=false`): mudar no card e
+atualizar o repo basta, sem mexer em **Configurações → Conexões** dentro da interface.
